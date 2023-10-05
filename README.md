@@ -1,4 +1,4 @@
-# my-vue-project
+# furnishing-demo
 
 ## Project setup
 ```
