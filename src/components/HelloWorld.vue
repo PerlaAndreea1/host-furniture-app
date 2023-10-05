@@ -23,7 +23,7 @@
 			span(v-if="room=='Living Room'") Carpet
 			span(v-if="room=='Bedroom'") Bedside Table
 			span(v-if="room=='Kitchen'") Dining Table
-			span(v-if="room=='Bathroom'") Towel
+			span(v-if="room=='Bathroom'") Plant
 		el-button(type="primary" v-if="room" @click="captureAndSave") Save Design
 		el-button(type="danger" v-if="room" @click="clear") Clear
 	div.images(ref='captureDiv')
@@ -34,59 +34,59 @@
 
 		img#table1.table(v-if="room=='Living Room'" src='../assets/Coffee-Table-PNG-Image.png')
 		img#table1.table(v-else-if="room=='Bedroom'" style="margin-top:300px;margin-left:450px;height:300px;width:300px;"  src='../assets/Dresser-PNG-HD.png')
-		img#table1.table(v-else-if="room=='Bathroom'" src='')
+		img#table1.table(v-else-if="room=='Bathroom'" style="margin-top:300px;margin-left:850px;height:300px;width:300px;" src='../assets/Washstand-PNG-Photos.png')
 		img#table1.table(v-else-if="room=='Kitchen'" style="margin-top:80px;margin-left:380px;height:550px;width:600px;" src='../assets/Kitchen-PNG-Transparent.png')
 
 		img#table2.table(v-if="room=='Living Room'" src='../assets/Table-Transparent-PNG.png')
 		img#table2.table(v-else-if="room=='Bedroom'" style="margin-top:350px;margin-left:450px;height:300px;width:300px;"  src='../assets/Dresser-Background-PNG.png')
-		img#table2.table(v-else-if="room=='Bathroom'" src='')
+		img#table2.table(v-else-if="room=='Bathroom'" style="margin-top:350px;margin-left:850px;height:400px;width:300px;" src='../assets/hampton-freestanding-wash-basin-bilden-home-and-hardware-market_grande.png')
 		img#table2.table(v-else-if="room=='Kitchen'" style="margin-top:100px;margin-left:380px;height:500px;width:600px;" src='../assets/Kitchen-PNG-File-Download-Free.png')
 
 		img#table3.table(v-if="room=='Living Room'" src='../assets/Drum-Table-PNG-HD.png')
 		img#table3.table(v-else-if="room=='Bedroom'" style="margin-top:350px;margin-left:450px;height:300px;width:300px;" src='../assets/Dresser-PNG-Transparent-Picture.png')
-		img#table3.table(v-else-if="room=='Bathroom'" src='')
+		img#table3.table(v-else-if="room=='Bathroom'" style="margin-top:300px;margin-left:750px;height:450px;width:450px;" src='../assets/pngtree-bathroom-sink-for-washing-hands-and-face-vector-png-image_5732311.png')
 		img#table3.table(v-else-if="room=='Kitchen'" style="margin-top:130px;margin-left:380px;height:450px;width:600px;" src='../assets/Modern-Kitchen-PNG-Transparent-Image.png')
 
 		img#sofa1.sofa(v-if="room=='Living Room'" src='../assets/Five-Seater-Sofa-PNG-File.png')
 		img#sofa1.sofa(v-else-if="room=='Bedroom'" style="margin-left:900px;" src='../assets/Sleigh-Bed-PNG-Image.png')
-		img#sofa1.sofa(v-if="room=='Bathroom'" src='')
+		img#sofa1.sofa(v-if="room=='Bathroom'" style="margin-top:450px;margin-left:1350px;height:300px;width:150px;" src='../assets/Toilet-PNG-Image.png')
 		img#sofa1.sofa(v-if="room=='Kitchen'" style="margin-top:120px;margin-left:930px;height:500px;width:500px;" src='../assets/Refrigerator-Transparent-Images-PNG.png')
 
 		img#sofa2.sofa(v-if="room=='Living Room'" src='../assets/Sleeper-Sofa-Transparent-Background.png')
 		img#sofa2.sofa(v-else-if="room=='Bedroom'" style="margin-left:900px;" src='../assets/Platform-Bed-PNG-Clipart.png')
-		img#sofa2.sofa(v-if="room=='Bathroom'" src='')
+		img#sofa2.sofa(v-if="room=='Bathroom'" style="margin-top:450px;margin-left:1350px;height:300px;width:150px;" src='../assets/Toilet2-PNG-Image.png')
 		img#sofa2.sofa(v-if="room=='Kitchen'" style="margin-top:100px;margin-left:1020px;height:500px;width:300px;" src='../assets/Refrigerator-PNG-Clipart.png')
 
 		img#sofa3.sofa(v-if="room=='Living Room'" src='../assets/Sleeper-Sofa-PNG-Background-Image.png')
 		img#sofa3.sofa(v-else-if="room=='Bedroom'" style="margin-left:900px;" src='../assets/Beds-PNG-HD.png')
-		img#sofa3.sofa(v-if="room=='Bathroom'" src='')
+		img#sofa3.sofa(v-if="room=='Bathroom'" style="margin-left:1200px;" src='../assets/Toilet-PNG-Picture.png')
 		img#sofa3.sofa(v-if="room=='Kitchen'" style="margin-top:100px;margin-left:1020px;height:500px;width:300px;" src='../assets/LG-Refrigerator-PNG-File.png')
 
 		img#light1.light(v-if="room=='Living Room'" src='../assets/Hanging-Chandelier-PNG-Pic.png')
 		img#light1.light(v-else-if="room=='Bedroom'" style="margin-top:360px;height:150px;width:150px;"  src='../assets/Ceramic-Lamp-PNG-Photos.png')
-		img#light1.light(v-else-if="room=='Bathroom'" style="margin-top:360px;height:150px;width:150px;"  src='')
+		img#light1.light(v-else-if="room=='Bathroom'" style="margin-top:150px;margin-left:920px;height:200px;"  src='../assets/Mirror-Transparent-PNG.png')
 		img#light1.light(v-else-if="room=='Kitchen'" style="margin-top:550px;margin-left:1450px;height:250px;width:150px;" src='../assets/Garbage-Can-PNG-Pic.png')
 
 
 		img#light2.light(v-if="room=='Living Room'" src='../assets/Chandelier-Light-Lamp-Transparent-PNG.png')
 		img#light2.light(v-else-if="room=='Bedroom'" style="margin-top:360px;margin-left:825px;height:150px;width:100px;" src='../assets/Lamp-PNG-Image.png')
-		img#light2.light(v-else-if="room=='Bathroom'" style="margin-top:360px;margin-left:825px;height:150px;width:100px;" src='')
+		img#light2.light(v-else-if="room=='Bathroom'" style="margin-top:150px;margin-left:930px;height:200px;" src='../assets/Mirror-PNG-Transparent.png')
 		img#light2.light(v-else-if="room=='Kitchen'" style="margin-top:600px;margin-left:1450px;height:100px;width:80px;" src='../assets/Trash-Silver-Bin-PNG-Clipart.png')
 
 		img#light3.light(v-if="room=='Living Room'" src='../assets/Chandelier-Light-Lamp-PNG-File.png')
 		img#light3.light(v-else-if="room=='Bedroom'" style="margin-top:360px;height:150px;width:150px;" src='../assets/Decorative-Lamp-PNG-Transparent-Image.png')
-		img#light3.light(v-else-if="room=='Bathroom'" style="margin-top:360px;margin-left:825px;height:150px;width:100px;" src='')
+		img#light3.light(v-else-if="room=='Bathroom'" style="margin-top:150px;margin-left:890px;height:200px;width:250px;" src='../assets/a6244bc3dded15192b050b4b4109bd59.png')
 		img#light3.light(v-else-if="room=='Kitchen'" style="margin-top:600px;margin-left:1450px;height:100px;width:80px;" src='../assets/Trash-Silver-Bin-PNG-Photos.png')
 
 		img#carpet1.carpet(v-if="room=='Living Room'" src='../assets/Carpet-PNG-Pic.png')
 		img#carpet1.carpet(v-else-if="room=='Bedroom'" style="margin-top:490px;margin-left:800px;height:150px;width:150px;" src='../assets/Bed-Table-PNG-File.png')
 		img#carpet1.carpet(v-else-if="room=='Kitchen'" style="z-index:5;margin-top:300px;margin-left:600px;height:600px;width:600px;" src='../assets/Dining-Room-Table-Transparent-Images-PNG.png')
-		img#carpet1.carpet(v-else-if="room=='Bathroom'" style="margin-top:360px;margin-left:825px;height:250px;width:100px;" src='')
+		img#carpet1.carpet(v-else-if="room=='Bathroom'" style="margin-top:220px;margin-left:50px;height:600px;width:400px;" src='../assets/Aesthetic-Plant-Transparent-PNG.png')
 
 		img#carpet2.carpet(v-if="room=='Living Room'" src='../assets/Carpet-PNG-Clipart.png')
 		img#carpet2.carpet(v-else-if="room=='Bedroom'" style="margin-top:480px;margin-left:800px;height:150px;width:150px;" src='../assets/Nightstand-Download-PNG-Image.png')
 		img#carpet2.carpet(v-else-if="room=='Kitchen'" style="z-index:5;margin-top:300px;margin-left:600px;height:600px;width:600px;" src='../assets/Dining-Room-Table-PNG-Clipart.png')
-		img#carpet2.carpet(v-else-if="room=='Bathroom'" style="margin-top:360px;margin-left:825px;height:150px;width:100px;" src='')
+		img#carpet2.carpet(v-else-if="room=='Bathroom'" style="margin-top:350px;height:400px;width:200px;" src='../assets/Flower-Pot-Plants-Transparent-PNG.png')
 </template>
 
 <script>
@@ -106,16 +106,14 @@ export default {
         }, {
           value: 'Bedroom',
           label: 'Bedroom'
-        },
-        // {
-				// 	value: 'Bathroom',
-				// 	label: 'Bathroom'
-				// },
-        {
+        },{
+					value: 'Bathroom',
+					label: 'Bathroom'
+				},{
           value: 'Kitchen',
           label: 'Kitchen'
         }],
-        room: 'Living Room',
+        room: 'Bathroom',
 				output: null
       }
     },
