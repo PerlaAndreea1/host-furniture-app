@@ -113,7 +113,7 @@ export default {
           value: 'Kitchen',
           label: 'Kitchen'
         }],
-        room: 'Bathroom',
+        room: 'Living Room',
 				output: null
       }
     },
