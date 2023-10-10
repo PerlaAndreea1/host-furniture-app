@@ -91,12 +91,16 @@
 
 <script>
 import domtoimage from 'dom-to-image';
-import axios from 'axios';
+import DraggableImage from './DraggableImage.vue';
 
 export default {
   name: 'HelloWorld',
+	components: {
+    DraggableImage,
+  },
   props: {
-    msg: String
+    msg: String,
+		room2: String,
   },
 	data() {
       return {
@@ -114,7 +118,7 @@ export default {
           label: 'Kitchen'
         }],
         room: 'Living Room',
-				output: null
+				output: null,
       }
     },
 
@@ -169,6 +173,7 @@ function ImageSwitcher(choices, i) {
 
   },
 	methods:{
+		
 		clear(){
 			var rooms = this.$el.querySelectorAll('#room');
 			var sofas = this.$el.querySelectorAll('.sofa');
@@ -192,36 +197,6 @@ function ImageSwitcher(choices, i) {
 				box.style.visibility = 'hidden';
 			});
 		},
-
-		async fetchImages() {
-      try {
-        // Replace 'http://localhost:3000' with your proxy server's URL
-        const proxyServerUrl = 'http://localhost:3000';
-
-        // Define image URLs with paths on the proxy server
-        const imageUrls = {
-          'Living Room': `${proxyServerUrl}/external-image/path-to-living-room-image.png`,
-          'Bedroom': `${proxyServerUrl}/external-image/path-to-bedroom-image.png`,
-          'Bathroom': `${proxyServerUrl}/external-image/path-to-bathroom-image.png`,
-          'Kitchen': `${proxyServerUrl}/external-image/path-to-kitchen-image.png`,
-        };
-
-        // Fetch the image for the current room
-        const response = await axios.get(imageUrls[this.room], {
-          responseType: 'blob', // Set response type to blob
-        });
-
-        // Create a blob URL for the image
-        const blob = new Blob([response.data]);
-        const imageUrl = URL.createObjectURL(blob);
-
-        // Update the 'output' data property with the fetched image URL
-        this.output = imageUrl;
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    },
-
 
 		async captureAndSave() {
 			const divToCapture = this.$refs.captureDiv;
@@ -268,7 +243,6 @@ img {
 ul{
 	list-style-type: none;
 }
-
 
 #room{
 z-index: -1000;   

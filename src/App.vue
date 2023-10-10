@@ -1,17 +1,22 @@
-<template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="pug">
+  #app
+    router-link(to='/') 
+      el-button.buttons(type="info") Furnish Various Rooms
+    router-link(to='/custom-design')
+      el-button.buttons(type="info") Custom Room Design
+    router-view
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
-<style>
+<style scoped>
+.buttons{
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
 </style>
