@@ -330,15 +330,9 @@ export default {
     // },
     deleteImage() {
       if (this.selectedImage !== '') {
-        const index = this.images.findIndex((image) => {
-          return (
-            image.src === this.availableImages[this.selectedImage].src
-          );
-        });
+        const selectedFurniture = this.availableImages[this.selectedImage].name;
 
-        if (index !== -1) {
-          this.images.splice(index, 1);
-        }
+        this.images = this.images.filter((image) => !image.name.startsWith(selectedFurniture));
       }
     }
   }
