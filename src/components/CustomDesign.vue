@@ -2,8 +2,11 @@
 .room
   el-select(v-model="selectedImage" placeholder='Select Furniture' @change="updateOptions")
     el-option(v-for="(option, index) in availableImages" :key="index" :label='option.name' :value="index" ) {{ option.name }}
-  el-select(v-model="selectedOption", placeholder="Select Option")
-    el-option(v-for="(option, index) in availableOptions" :key="index" :label="option.name" :value="index") {{ option.name }}
+  el-select.options-dropdown(v-model="selectedOption", placeholder="Select Option")
+    el-option(v-for="(option, index) in availableOptions" :key="index" :label='option.name' :value="index")
+      div
+        img(:src="option.src", alt="Option", width="32", height="32")
+        | {{ option.name }}
   el-button(@click="addImageToScene") Add Selected Image
   el-button(@click="deleteImage") Delete Selected Image
   // Render the room background
@@ -18,6 +21,7 @@
     :left="image.left"
     :height="image.height"
     :width="image.width"
+    :zIndex="image.zIndex",
     @updatePosition="updateImagePosition(index, $event)"
   )
 </template>
@@ -71,6 +75,8 @@ export default {
 
   methods: {
     updateOptions() {
+      if (this.selectedOption !== '')
+        this.selectedOption = '';
       if (this.selectedImage !== '') {
         const selectedFurniture = this.availableImages[this.selectedImage];
         // Define options based on the selected furniture
@@ -84,6 +90,7 @@ export default {
                 left: 750,
                 height: 200,
                 width: 200,
+                zIndex: 6,
               },
               {
                 name: 'Vintage Lamp',
@@ -92,6 +99,7 @@ export default {
                 left: 700,
                 height: 300,
                 width: 300,
+                zIndex: 6,
               },
               {
                 name: 'Antique Lamp',
@@ -100,6 +108,7 @@ export default {
                 left: 700,
                 height: 300,
                 width: 300,
+                zIndex: 6,
               },
             ];
             break;
@@ -112,6 +121,7 @@ export default {
                 left: 400,
                 height: 500,
                 width: 600,
+                zIndex: 2,
               },
               {
                 name: 'Blue Sofa',
@@ -120,6 +130,7 @@ export default {
                 left: 400,
                 height: 550,
                 width: 600,
+                zIndex: 2,
               },
               {
                 name: 'Cream Sofa',
@@ -128,6 +139,7 @@ export default {
                 left: 400,
                 height: 300,
                 width: 600,
+                zIndex: 2,
               },
             ];
             break;
@@ -140,6 +152,7 @@ export default {
                 left: 900,
                 height: 250,
                 width: 250,
+                zIndex: 1,
               },
               {
                 name: 'Portrait',
@@ -148,6 +161,7 @@ export default {
                 left: 900,
                 height: 250,
                 width: 200,
+                zIndex: 1,
               },
               {
                 name: 'Modern Art',
@@ -156,6 +170,7 @@ export default {
                 left: 900,
                 height: 250,
                 width: 250,
+                zIndex: 1,
               },
             ];
             break;
@@ -168,6 +183,7 @@ export default {
                 left: 1200,
                 height: 300,
                 width: 300,
+                zIndex: 4,
               },
               {
                 name: 'Metal Table',
@@ -176,6 +192,7 @@ export default {
                 left: 1200,
                 height: 300,
                 width: 300,
+                zIndex: 4,
               },
               {
                 name: 'Wooden Table',
@@ -184,6 +201,7 @@ export default {
                 left: 1100,
                 height: 200,
                 width: 300,
+                zIndex: 4,
               },
             ];
             break;
@@ -196,6 +214,7 @@ export default {
                 left: 0,
                 height: 400,
                 width: 500,
+                zIndex: 3,
               },
               {
                 name: 'Brown Armchair',
@@ -204,6 +223,7 @@ export default {
                 left: 0,
                 height: 400,
                 width: 400,
+                zIndex: 3,
               },
               {
                 name: 'Gray Armchair',
@@ -212,6 +232,7 @@ export default {
                 left: 0,
                 height: 400,
                 width: 500,
+                zIndex: 3,
               },
             ];
             break;
@@ -224,6 +245,7 @@ export default {
                 left: 1000,
                 height: 200,
                 width: 150,
+                zIndex: 5,
               },
               {
                 name: 'Pothos',
@@ -232,6 +254,7 @@ export default {
                 left: 1000,
                 height: 200,
                 width: 150,
+                zIndex: 5,
               },
               {
                 name: 'Palm Tree',
@@ -240,6 +263,7 @@ export default {
                 left: 1000,
                 height: 400,
                 width: 200,
+                zIndex: 5,
               },
             ];
             break;
@@ -278,6 +302,7 @@ export default {
           left: selectedOption.left,
           height: selectedOption.height,
           width: selectedOption.width,
+          zIndex: selectedOption.zIndex,
         };
 
         this.images.push(newImage);

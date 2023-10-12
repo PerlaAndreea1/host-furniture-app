@@ -1,7 +1,7 @@
 <template>
   <div
     class="draggable-image"
-    :style="{ top: top + 'px', left: left + 'px' }"
+    :style="{ top: top + 'px', left: left + 'px', zIndex: zIndex }"
     @mousedown="startDragging"
     @mousemove="dragImage"
     @mouseup="stopDragging"
@@ -19,6 +19,7 @@ export default {
     left: Number,
     height: Number,
     width: Number,
+    zIndex: Number,
     room: String,
   },
   data() {
