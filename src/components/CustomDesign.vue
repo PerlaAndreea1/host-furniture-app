@@ -308,26 +308,6 @@ export default {
         this.images.push(newImage);
       }
     },
-    // addImageToScene() {
-    //   if (this.selectedImage !== '') {
-    //     const selectedImage = this.availableImages[this.selectedImage];
-    //     const isDuplicate = this.images.some((image) => {
-    //       return (
-    //         image.src === selectedImage.src &&
-    //         image.top === selectedImage.top &&
-    //         image.left === selectedImage.left &&
-    //         image.height === selectedImage.height &&
-    //         image.width === selectedImage.width
-    //       );
-    //     });
-    //     if (!isDuplicate) {
-    //       const newImage = {
-    //         ...selectedImage, 
-    //       };
-    //       this.images.push(newImage);
-    //     }
-    //   }
-    // },
     deleteImage() {
       if (this.selectedImage !== '') {
         const selectedFurniture = this.availableImages[this.selectedImage].name;
