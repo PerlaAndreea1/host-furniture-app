@@ -6,13 +6,20 @@
     @mousemove="dragImage"
     @mouseup="stopDragging"
     @dragstart="preventDrag"
+    @contextmenu.prevent="openMenu"
   >
     <img :src="imageUrl" :style="{ height: height + 'px', width: width + 'px' }" draggable="false" />
+    <image-menu v-if="isMenuOpen" />
   </div>
 </template>
 
 <script>
+import ImageMenu from './ImageMenu.vue'; // Import your menu component
+
 export default {
+  components: {
+    ImageMenu,
+  },
   props: {
     imageUrl: String,
     top: Number,
@@ -31,7 +38,28 @@ export default {
       offsetY: 0,
     };
   },
+  
+  mounted() {
+    document.addEventListener('click', this.closeMenuOnOutsideClick);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener('click', this.closeMenuOnOutsideClick);
+  },
+
   methods: {
+    openMenu(event) {
+      event.preventDefault(); // Prevent the default context menu
+      this.isMenuOpen = true;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    },
+    closeMenuOnOutsideClick(event) {
+      if (!this.$el.contains(event.target)) {
+        this.closeMenu();
+      }
+    },
     startDragging(event) {
       this.isDragging = true;
       this.startX = event.clientX;
@@ -61,3 +89,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.draggable-image {
+  position: relative;
+}
+
+</style>
