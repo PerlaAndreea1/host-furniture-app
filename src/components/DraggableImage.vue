@@ -80,7 +80,7 @@ export default {
       this.isOverlayVisible = false;
     },
     deleteImageButton() {
-      this.$emit('delete-image'); // Emit an event to trigger the deletion in the parent
+      this.$emit('delete-image', this.imageUrl); // Emit an event to trigger the deletion in the parent
       this.closeOverlay();
     },
     flipImage() {

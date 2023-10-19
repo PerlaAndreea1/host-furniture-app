@@ -8,7 +8,6 @@
         img(:src="option.src", alt="Option", width="32", height="32")
         | {{ option.name }}
   el-button(@click="addImageToScene") Add Selected Image
-  el-button(@click="deleteImage") Delete Selected Image
   // Render the room background
   img.room-background(:src="roomBackground")
   
@@ -309,11 +308,13 @@ export default {
         this.images.push(newImage);
       }
     },
-    deleteImage() {
-      if (this.selectedImage !== '') {
-        const selectedFurniture = this.availableImages[this.selectedImage].name;
+    deleteImage(imageUrl) {
+      // Find the index of the image with the matching URL
+      const index = this.images.findIndex((image) => image.src === imageUrl);
 
-        this.images = this.images.filter((image) => !image.name.startsWith(selectedFurniture));
+      if (index !== -1) {
+        // Remove the image from the images array
+        this.images.splice(index, 1);
       }
     }
   }
