@@ -23,6 +23,7 @@
     :width="image.width"
     :zIndex="image.zIndex",
     @updatePosition="updateImagePosition(index, $event)"
+    @delete-image="deleteImage"
   )
 </template>
 
